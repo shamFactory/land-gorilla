@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/store', 'HomeController@store')->name('store');
+Route::get('/view/{id}', 'HomeController@view')->name('view')->where(['id' => '[0-9]+']);
